@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { createClient } from '@/utils/supabase/client';
 import styles from './page.module.css';
 import { submitExamResult } from './actions';
 
@@ -49,16 +50,28 @@ export default function ThiThuPage() {
   const [isFinished, setIsFinished] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [score, setScore] = useState({ correct: 0, total: mockQuestions.length, passed: false });
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
+
+  // Check Auth
+  useEffect(() => {
+    const checkAuth = async () => {
+      const supabase = createClient();
+      const { data: { user } } = await supabase.auth.getUser();
+      setIsAuthenticated(!!user);
+    };
+    checkAuth();
+  }, []);
 
   // Timer Countdown
   useEffect(() => {
+    if (isAuthenticated === false || isAuthenticated === null) return;
     if (isFinished || timeLeft <= 0) {
       if (timeLeft <= 0 && !isFinished) handleFinish();
       return;
     }
     const timer = setInterval(() => setTimeLeft(prev => prev - 1), 1000);
     return () => clearInterval(timer);
-  }, [timeLeft, isFinished]);
+  }, [timeLeft, isFinished, isAuthenticated]);
 
   const handleSelectOption = (optIndex: number) => {
     setAnswers(prev => ({ ...prev, [currentQuestion]: optIndex }));
@@ -134,6 +147,37 @@ export default function ThiThuPage() {
                 onClick={() => router.push('/dashboard')}
               >
                 Mở Dashboard xem lịch sử
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Render Gate Screen
+  if (isAuthenticated === null) {
+    return <div className={styles.page}><div className="container" style={{ textAlign: 'center', padding: '5rem' }}>Đang tải máy chủ thi...</div></div>;
+  }
+
+  if (isAuthenticated === false) {
+    return (
+      <div className={styles.page}>
+        <div className="container">
+          <div className={styles.resultCard}>
+            <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>🔒</div>
+            <h1 className={styles.resultTitle}>Vui lòng Đăng nhập</h1>
+            <p style={{ fontSize: '1.1rem', marginBottom: '2rem', color: 'var(--color-on-surface-variant)' }}>
+              Bạn cần phải đăng nhập bằng hệ thống Google để có thể bắt đầu làm bài thi thử môn Lý thuyết.
+              Điều này giúp chúng tôi tự động chấm điểm và lưu vào hồ sơ bảng điểm Dashboard cá nhân của bạn một cách chính xác.
+            </p>
+            <div className={styles.resultActions}>
+              <button 
+                className="btn btn-primary" 
+                onClick={() => router.push('/login')}
+                style={{ width: '100%', justifyContent: 'center', padding: '1rem' }}
+              >
+                Đăng nhập ngay
               </button>
             </div>
           </div>
