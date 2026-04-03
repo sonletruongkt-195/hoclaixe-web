@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import styles from './page.module.css';
+import { createClient } from '@/utils/supabase/server';
 
 export const metadata: Metadata = {
   title: 'Dashboard Tiến độ Cá nhân - Theo dõi hành trình học lái xe',
@@ -21,7 +22,11 @@ const weakTopics = [
   { topic: 'Sa hình & Đường trường', correct: 45, total: 78, color: '#9d4300' },
 ];
 
-export default function DashboardPage() {
+export default async function DashboardPage() {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  const isBlurred = !user;
+
   return (
     <div className={styles.page}>
       <div className={styles.hero}>
@@ -34,8 +39,8 @@ export default function DashboardPage() {
         </div>
       </div>
 
-      <div className="container" style={{ padding: '2rem 1.5rem 4rem' }}>
-
+      <div className="container" style={{ padding: '2rem 1.5rem 4rem', position: 'relative' }}>
+        <div style={{ filter: isBlurred ? 'blur(8px)' : 'none', pointerEvents: isBlurred ? 'none' : 'auto', userSelect: isBlurred ? 'none' : 'auto', transition: 'filter 0.3s' }}>
         {/* Top stats */}
         <div className={styles.statsRow}>
           {[
@@ -157,7 +162,23 @@ export default function DashboardPage() {
               </tbody>
             </table>
           </div>
+          </div>
         </div>
+
+        {isBlurred && (
+          <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 10 }}>
+            <div className="card" style={{ maxWidth: '400px', textAlign: 'center', padding: '2.5rem 2rem', boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}>
+               <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>🔒</div>
+               <h2 style={{ fontSize: '1.5rem', marginBottom: '0.75rem', fontWeight: 700 }}>Bạn chưa đăng nhập</h2>
+               <p style={{ marginBottom: '1.5rem', color: 'var(--color-onsurface-variant)' }}>
+                 Silicone hoặc một số tính năng đang được khoá. Hãy đăng nhập để theo dõi dự đoán tỷ lệ đỗ và lịch trình thi cá nhân nhé.
+               </p>
+               <Link href="/login" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
+                 Tạo tài khoản / Đăng nhập
+               </Link>
+            </div>
+          </div>
+        )}
 
       </div>
     </div>

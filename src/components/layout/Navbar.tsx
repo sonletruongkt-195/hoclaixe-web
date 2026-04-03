@@ -65,7 +65,7 @@ export default function Navbar() {
 
         {/* CTA */}
         <div className={styles.actions}>
-          <Link href="/ly-thuyet" className="btn btn-cta btn-sm">
+          <Link href="/login" className="btn btn-cta btn-sm">
             Học ngay
           </Link>
           {/* Mobile toggle */}
@@ -95,7 +95,7 @@ export default function Navbar() {
             </li>
           ))}
         </ul>
-        <Link href="/ly-thuyet" className="btn btn-cta" style={{ marginTop: '1rem', width: '100%' }}>
+        <Link href="/login" className="btn btn-cta" style={{ marginTop: '1rem', width: '100%' }}>
           Bắt đầu học miễn phí
         </Link>
       </div>

@@ -53,7 +53,7 @@ export default function HeroSection() {
 
           {/* CTA buttons */}
           <div className={styles.ctas}>
-            <Link href="/ly-thuyet" className="btn btn-cta btn-lg">
+            <Link href="/login" className="btn btn-cta btn-lg">
               Bắt đầu ôn tập miễn phí
             </Link>
             <Link href="/mo-phong" className="btn btn-ghost btn-lg">
