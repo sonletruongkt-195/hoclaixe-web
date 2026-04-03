@@ -8,13 +8,6 @@ export const metadata: Metadata = {
   description: 'Dashboard phân tích tiến độ học tập cá nhân, dự đoán tỷ lệ đỗ, lịch sử thi thử và phân tích điểm yếu.',
 };
 
-const recentExams = [
-  { date: '01/04/2024', score: 42, total: 50, pass: true, time: '18 phút' },
-  { date: '29/03/2024', score: 38, total: 50, pass: true, time: '22 phút' },
-  { date: '25/03/2024', score: 31, total: 50, pass: false, time: '25 phút' },
-  { date: '20/03/2024', score: 35, total: 50, pass: true, time: '20 phút' },
-  { date: '15/03/2024', score: 28, total: 50, pass: false, time: '28 phút' },
-];
 
 const weakTopics = [
   { topic: 'Biển báo đường bộ', correct: 65, total: 120, color: '#003d9b' },
@@ -26,6 +19,17 @@ export default async function DashboardPage() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   const isBlurred = !user;
+
+  // Lấy dữ liệu bài thi thật từ Supabase của riêng User
+  let fetchedExams: any[] = [];
+  if (user) {
+    const { data } = await supabase
+      .from('exam_histories')
+      .select('*')
+      .eq('user_id', user.id)
+      .order('created_at', { ascending: false });
+    if (data) fetchedExams = data;
+  }
 
   return (
     <div className={styles.page}>
@@ -144,21 +148,33 @@ export default async function DashboardPage() {
                 </tr>
               </thead>
               <tbody>
-                {recentExams.map((exam, i) => (
-                  <tr key={i}>
-                    <td>{exam.date}</td>
-                    <td className={styles.score}>{exam.score}/{exam.total}</td>
-                    <td>{exam.time}</td>
-                    <td>
-                      <span className={`badge ${exam.pass ? 'badge-success' : 'badge-error'}`}>
-                        {exam.pass ? '✓ Đỗ' : '✗ Trượt'}
-                      </span>
-                    </td>
-                    <td>
-                      <button className="btn btn-ghost btn-sm">Xem lại</button>
-                    </td>
+                {fetchedExams.map((exam, i) => {
+                  const dateObj = new Date(exam.created_at);
+                  const dateStr = dateObj.toLocaleDateString('vi-VN');
+                  const timeMin = Math.floor(exam.time_taken_seconds / 60);
+                  const timeSec = exam.time_taken_seconds % 60;
+                  
+                  return (
+                    <tr key={i}>
+                      <td>{dateStr}</td>
+                      <td className={styles.score}>{exam.score}/{exam.total_questions}</td>
+                      <td>{timeMin}p {timeSec}s</td>
+                      <td>
+                        <span className={`badge ${exam.is_passed ? 'badge-success' : 'badge-error'}`}>
+                          {exam.is_passed ? '✓ Đỗ' : '✗ Trượt'}
+                        </span>
+                      </td>
+                      <td>
+                        <button className="btn btn-ghost btn-sm">Xem chi tiết</button>
+                      </td>
+                    </tr>
+                  )
+                })}
+                {fetchedExams.length === 0 && (
+                  <tr>
+                    <td colSpan={5} style={{textAlign: 'center', padding: '2rem'}}>Bạn chưa làm bài thi thử nào trên hệ thống</td>
                   </tr>
-                ))}
+                )}
               </tbody>
             </table>
           </div>
