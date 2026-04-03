@@ -1,6 +1,5 @@
-import { login, signup, signInWithGoogle } from './actions'
+import { signInWithGoogle } from './actions'
 import styles from './page.module.css'
-import Link from 'next/link'
 
 export default async function LoginPage({
   searchParams,
@@ -31,62 +30,7 @@ export default async function LoginPage({
           </div>
 
           <form>
-            <div className={styles.formGroup}>
-              <div className={styles.label}>
-                <label htmlFor="email">Địa chỉ Email</label>
-              </div>
-              <input
-                id="email"
-                name="email"
-                className={styles.input}
-                placeholder="you@example.com"
-                type="email"
-                required
-                autoComplete="email"
-              />
-            </div>
-
-            <div className={styles.formGroup}>
-              <div className={styles.label}>
-                <label htmlFor="password">Mật khẩu</label>
-                <Link href="#" className={styles.forgotLink}>Quên mật khẩu?</Link>
-              </div>
-              <input
-                id="password"
-                type="password"
-                name="password"
-                className={styles.input}
-                placeholder="••••••••"
-                required
-                autoComplete="current-password"
-              />
-            </div>
-
-            <div className={styles.buttonGroup}>
-              <button
-                formAction={login}
-                className="btn btn-primary"
-                style={{ width: '100%', justifyContent: 'center' }}
-              >
-                Đăng nhập
-              </button>
-              
-              <div className={styles.divider}>
-                <span className={styles.dividerText}>Hoặc</span>
-              </div>
-
-              <button
-                formAction={signup}
-                className="btn btn-ghost"
-                style={{ width: '100%', justifyContent: 'center' }}
-              >
-                Tạo tài khoản mới
-              </button>
-              
-              <div className={styles.divider}>
-                <span className={styles.dividerText}>Hoặc kết nối</span>
-              </div>
-
+            <div className={styles.buttonGroup} style={{ marginTop: '0' }}>
               <button
                 formAction={signInWithGoogle}
                 className={styles.oauthButton}
