@@ -10,6 +10,7 @@ const navLinks = [
   { href: '/ly-thuyet', label: 'Lý thuyết' },
   { href: '/mo-phong', label: 'Mô phỏng' },
   { href: '/sa-hinh', label: 'Sa hình' },
+  { href: '/duong-truong', label: 'Đường trường' },
   { href: '/dashboard', label: 'Dashboard' },
   { href: '/cong-cu', label: 'Công cụ' },
   { href: '/truong-dao-tao', label: 'Trường đào tạo' },

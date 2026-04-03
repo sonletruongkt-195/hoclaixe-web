@@ -1,0 +1,669 @@
+.page {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .page {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+.fontHeadline {
+  font-family: var(--font-display);
+}
+
+.ambientShadow {
+  box-shadow: 0 12px 32px rgba(25, 27, 35, 0.04);
+}
+
+/* HERO SECTION */
+.heroSection {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 6rem;
+}
+
+@media (min-width: 1024px) {
+  .heroSection {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+
+.heroContent {
+  order: 2;
+}
+
+@media (min-width: 1024px) {
+  .heroContent {
+    grid-column: span 7;
+    order: 1;
+  }
+}
+
+.verificationBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.75rem;
+  background-color: var(--color-tertiary-fixed);
+  color: var(--color-on-tertiary-fixed-variant);
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  margin-right: 0.75rem;
+}
+
+.heroMeta {
+  color: var(--color-on-surface-variant);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.heroTitle {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+}
+
+@media (min-width: 768px) {
+  .heroTitle {
+    font-size: 3.75rem;
+  }
+}
+
+.heroDesc {
+  color: var(--color-on-surface-variant);
+  font-size: 1.125rem;
+  line-height: 1.625;
+  margin-bottom: 2rem;
+  max-width: 42rem;
+}
+
+@media (min-width: 768px) {
+  .heroDesc {
+    font-size: 1.25rem;
+  }
+}
+
+.statsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.statValue {
+  font-size: 1.875rem;
+  font-weight: 800;
+  font-family: var(--font-display);
+}
+
+.statValuePrimary { color: var(--color-primary); }
+.statValueSecondary { color: var(--color-secondary); }
+.statValueTertiary { color: var(--color-tertiary); }
+
+.statLabel {
+  color: var(--color-on-surface-variant);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.btnPrimary {
+  padding: 1rem 2rem;
+  background-color: var(--color-secondary-container);
+  color: var(--color-on-secondary-container);
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 1.125rem;
+  transition: all 0.2s;
+  cursor: pointer;
+  border: none;
+}
+
+.btnPrimary:hover {
+  opacity: 0.9;
+}
+
+.btnSecondary {
+  padding: 1rem 2rem;
+  background-color: var(--color-surface-container-high);
+  color: var(--color-primary);
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 1.125rem;
+  transition: all 0.2s;
+  cursor: pointer;
+  border: none;
+}
+
+.btnSecondary:hover {
+  background-color: var(--color-surface-container-highest);
+}
+
+.heroVisual {
+  order: 1;
+  position: relative;
+}
+
+@media (min-width: 1024px) {
+  .heroVisual {
+    grid-column: span 5;
+    order: 2;
+  }
+}
+
+.imageWrapper {
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  position: relative;
+  z-index: 10;
+}
+
+.imageObj {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.decoSquare {
+  position: absolute;
+  bottom: -1.5rem;
+  right: -1.5rem;
+  width: 12rem;
+  height: 12rem;
+  background-color: var(--color-primary-fixed);
+  border-radius: var(--radius-xl);
+  z-index: 1;
+  opacity: 0.3;
+}
+
+.decoCircle {
+  position: absolute;
+  top: -1.5rem;
+  left: -1.5rem;
+  width: 8rem;
+  height: 8rem;
+  background-color: var(--color-secondary-fixed);
+  border-radius: 50%;
+  z-index: 1;
+  opacity: 0.3;
+}
+
+
+/* SERVICES SECTION */
+.servicesSection {
+  margin-bottom: 6rem;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 3rem;
+}
+
+.labelTag {
+  font-size: 0.75rem;
+  color: var(--color-secondary);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.sectionTitle {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-top: 0.5rem;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .servicesGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.serviceCardBasic {
+  background-color: var(--color-surface-container-lowest);
+  padding: 2rem;
+  border-radius: var(--radius-xl);
+  border-bottom: 4px solid var(--color-primary);
+}
+
+.serviceCardPro {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  padding: 2rem;
+  border-radius: var(--radius-xl);
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.serviceCardChip {
+  background-color: var(--color-surface-container-lowest);
+  padding: 2rem;
+  border-radius: var(--radius-xl);
+  border-bottom: 4px solid var(--color-tertiary);
+}
+
+.popBadge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: var(--color-secondary-container);
+  color: var(--color-on-secondary-container);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.cardIconPrimary { color: var(--color-primary); font-size: 2.5rem; margin-bottom: 1.5rem; display: block; }
+.cardIconPro { color: var(--color-on-primary); font-size: 2.5rem; margin-bottom: 1.5rem; display: block; }
+.cardIconTertiary { color: var(--color-tertiary); font-size: 2.5rem; margin-bottom: 1.5rem; display: block; }
+
+.cardTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.cardDescBasic { color: var(--color-on-surface-variant); margin-bottom: 1.5rem; line-height: 1.625; }
+.cardDescPro { color: var(--color-on-primary-container); margin-bottom: 1.5rem; line-height: 1.625; }
+
+.cardList {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.cardListItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.cardPriceBasic { font-size: 1.875rem; font-weight: 800; color: var(--color-primary); margin-bottom: 1.5rem; }
+.cardPricePro { font-size: 1.875rem; font-weight: 800; margin-bottom: 1.5rem; }
+.cardPriceTertiary { font-size: 1.875rem; font-weight: 800; color: var(--color-tertiary); margin-bottom: 1.5rem; }
+.cardPriceSuffix { font-size: 0.875rem; font-weight: 400; color: var(--color-on-surface-variant); }
+
+.cardBtnBasic {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--color-surface-container-low);
+  color: var(--color-primary);
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  text-align: center;
+  transition: all 0.2s;
+  cursor: pointer;
+  border: none;
+}
+.cardBtnBasic:hover { background-color: var(--color-primary); color: var(--color-on-primary); }
+
+.cardBtnPro {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--color-on-primary);
+  color: var(--color-primary);
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  text-align: center;
+  transition: all 0.2s;
+  cursor: pointer;
+  border: none;
+}
+.cardBtnPro:hover { background-color: var(--color-secondary-container); color: var(--color-on-secondary-container); }
+
+.cardBtnTertiary {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--color-surface-container-low);
+  color: var(--color-tertiary);
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  text-align: center;
+  transition: all 0.2s;
+  cursor: pointer;
+  border: none;
+}
+.cardBtnTertiary:hover { background-color: var(--color-tertiary); color: var(--color-on-tertiary); }
+
+
+/* BOOKING & REVIEWS */
+.bookingReviewSection {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+}
+
+@media (min-width: 1024px) {
+  .bookingReviewSection {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+
+/* Calendar Form column */
+.bookingCol {
+  grid-column: span 1;
+}
+
+@media (min-width: 1024px) {
+  .bookingCol {
+    grid-column: span 7;
+  }
+}
+
+.bookingCard {
+  background-color: var(--color-surface-container-low);
+  padding: 2rem;
+  border-radius: var(--radius-xl);
+}
+
+@media (min-width: 768px) {
+  .bookingCard {
+    padding: 2.5rem;
+  }
+}
+
+.bookingBlockTitle {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 2rem;
+}
+
+.calendarWidget {
+  background-color: var(--color-surface-container-lowest);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.calHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.calMonth { font-weight: 700; font-size: 1.125rem; }
+.calNav { display: flex; gap: 0.5rem; }
+.calBtn { padding: 0.5rem; border-radius: 50%; cursor: pointer; border: none; background: transparent; transition: background 0.2s;}
+.calBtn:hover { background-color: var(--color-surface-container-high); }
+
+.calGridDays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.calDayLbl { font-size: 0.75rem; font-weight: 700; color: var(--color-on-surface-variant); }
+.calDayLblWeekend { color: var(--color-secondary); }
+
+.calGridDates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+  text-align: center;
+}
+.calDate {
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  transition: background 0.2s;
+}
+.calDateDisable { opacity: 0.3; cursor: default; }
+.calDateHover:hover { background-color: var(--color-primary-fixed); }
+.calDateSelect { background-color: var(--color-tertiary-fixed); font-weight: 700; }
+.calDateActive { background-color: var(--color-primary); color: var(--color-on-primary); font-weight: 700; }
+
+.formGroup {
+  margin-bottom: 1.5rem;
+}
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .formRow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.inputLabel {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.inputField {
+  width: 100%;
+  background-color: var(--color-surface-container-lowest);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s;
+  outline: none;
+}
+
+.inputField:focus {
+  border-color: var(--color-primary);
+}
+
+.btnSubmitForm {
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 1.125rem;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.btnSubmitForm:active { transform: scale(0.95); }
+
+/* Reviews column */
+.reviewsCol {
+  grid-column: span 1;
+}
+
+@media (min-width: 1024px) {
+  .reviewsCol {
+    grid-column: span 5;
+  }
+}
+
+.reviewItem {
+  border-left: 4px solid var(--color-primary-fixed);
+  padding-left: 1.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.stars {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--color-secondary);
+  margin-bottom: 0.75rem;
+}
+
+.reviewText {
+  color: var(--color-on-surface);
+  font-weight: 500;
+  margin-bottom: 1rem;
+  font-style: italic;
+  line-height: 1.625;
+}
+
+.reviewerBox {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.reviewerAvatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: var(--color-surface-container-highest);
+  overflow: hidden;
+}
+.reviewerAvatar img { width: 100%; height: 100%; object-fit: cover; }
+.reviewerName { font-size: 0.875rem; font-weight: 700; }
+.reviewerSub { font-size: 0.75rem; color: var(--color-on-surface-variant); }
+
+.moreReviewBtn {
+  color: var(--color-primary);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: gap 0.2s;
+}
+.moreReviewBtn:hover { gap: 0.75rem; }
+
+/* BOTTOM CTA */
+.btmCta {
+  margin-top: 6rem;
+  background-color: var(--color-tertiary);
+  color: var(--color-on-tertiary);
+  border-radius: var(--radius-xl);
+  padding: 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.btmCtaOverlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0.1;
+  pointer-events: none;
+  background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0);
+  background-size: 40px 40px;
+}
+
+.ctaTitle {
+  font-size: 1.875rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 10;
+}
+
+@media (min-width: 768px) {
+  .ctaTitle {
+    font-size: 3rem;
+  }
+}
+
+.ctaDesc {
+  color: var(--color-on-tertiary-container);
+  font-size: 1.125rem;
+  margin-bottom: 2.5rem;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 10;
+}
+
+.ctaActions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  position: relative;
+  z-index: 10;
+}
+
+@media (min-width: 640px) {
+  .ctaActions {
+    flex-direction: row;
+  }
+}
+
+.ctaBtn1 {
+  padding: 1rem 2.5rem;
+  background-color: var(--color-secondary-container);
+  color: var(--color-on-secondary-container);
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 1.125rem;
+  border: none;
+  cursor: pointer;
+}
+
+.ctaBtn2 {
+  padding: 1rem 2.5rem;
+  background-color: transparent;
+  border: 2px solid var(--color-on-tertiary);
+  color: var(--color-on-tertiary);
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 1.125rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.ctaBtn2:hover {
+  background-color: var(--color-on-tertiary);
+  color: var(--color-tertiary);
+}
