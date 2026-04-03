@@ -1,0 +1,103 @@
+.widget {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-on-surface);
+  margin-top: 0.25rem;
+}
+
+.date {
+  font-size: 0.75rem;
+  color: var(--color-on-surface-variant);
+  font-weight: 500;
+  margin-top: 0.25rem;
+  flex-shrink: 0;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.fuelItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: var(--color-surface-container-low);
+  border-radius: var(--radius-lg);
+  transition: background var(--transition-fast);
+}
+
+.fuelItem:hover {
+  background: var(--color-surface-container);
+}
+
+.fuelIcon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.fuelInfo {
+  flex: 1;
+}
+
+.fuelType {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-on-surface);
+}
+
+.fuelUnit {
+  font-size: 0.6875rem;
+  color: var(--color-on-surface-variant);
+  margin-top: 0.125rem;
+}
+
+.fuelRight {
+  text-align: right;
+}
+
+.fuelPrice {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--color-on-surface);
+}
+
+.fuelChange {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  margin-top: 0.125rem;
+}
+
+.up {
+  color: var(--color-error);
+}
+
+.down {
+  color: var(--color-tertiary);
+}
+
+.note {
+  font-size: 0.6875rem;
+  color: var(--color-on-surface-variant);
+  text-align: center;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--color-outline-variant);
+}

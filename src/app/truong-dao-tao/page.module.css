@@ -1,0 +1,252 @@
+.page { min-height: 100vh; background: var(--color-surface); }
+
+.hero {
+  background: linear-gradient(135deg, #1e3a5f 0%, var(--color-primary) 100%);
+  padding: 3rem 0 2rem;
+  color: white;
+}
+
+.breadcrumb {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-size: 0.8125rem; color: rgba(255,255,255,0.7); margin-bottom: 1rem;
+}
+.breadcrumb a { color: rgba(255,255,255,0.7); }
+.breadcrumb a:hover { color: #fff; }
+
+.heroTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 800; letter-spacing: -0.02em; color: #fff; margin-bottom: 0.5rem;
+}
+
+.heroDesc { font-size: 1rem; color: rgba(255,255,255,0.85); margin-bottom: 1.5rem; }
+
+/* Search */
+.searchBar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(8px);
+  border-radius: var(--radius-xl);
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
+  border: 1.5px solid rgba(255,255,255,0.2);
+}
+
+.searchInput {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 0.9375rem;
+  outline: none;
+  padding: 0.5rem 0;
+}
+
+.searchInput::placeholder { color: rgba(255,255,255,0.6); }
+
+.locationSelect {
+  background: rgba(255,255,255,0.1);
+  border: 1.5px solid rgba(255,255,255,0.2);
+  border-radius: var(--radius-lg);
+  color: white;
+  font-size: 0.875rem;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  font-family: var(--font-body);
+}
+
+.locationSelect option { color: var(--color-on-surface); background: var(--color-surface); }
+
+/* Filters */
+.filterRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.filterGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.filterLabel {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-on-surface-variant);
+  margin-right: 0.25rem;
+}
+
+.filterChip {
+  padding: 0.375rem 0.875rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-on-surface-variant);
+  background: var(--color-surface-container);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.filterChip:hover { background: var(--color-surface-container-high); }
+
+.chipActive {
+  background: var(--color-primary) !important;
+  color: white !important;
+}
+
+.sortSelect {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--color-on-surface-variant);
+}
+
+.sortSelect select {
+  padding: 0.375rem 0.75rem;
+  border: 1.5px solid var(--color-outline-variant);
+  border-radius: var(--radius-lg);
+  font-size: 0.875rem;
+  background: var(--color-surface-container-lowest);
+  cursor: pointer;
+  font-family: var(--font-body);
+}
+
+/* Results */
+.results {}
+
+.resultCount {
+  font-size: 0.875rem;
+  color: var(--color-on-surface-variant);
+  margin-bottom: 1rem;
+}
+
+.schoolGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.schoolCard {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  transition: all var(--transition-base);
+}
+
+.schoolCard:hover {
+  transform: translateY(-4px);
+}
+
+.schoolBadge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1;
+}
+
+.schoolImg {
+  height: 140px;
+  background: linear-gradient(135deg, var(--color-surface-container) 0%, var(--color-surface-container-highest) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.schoolImgPlaceholder {
+  font-size: 3rem;
+}
+
+.schoolInfo {
+  padding: 1.25rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.schoolName {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-on-surface);
+  line-height: 1.35;
+}
+
+.schoolLocation {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.8125rem;
+  color: var(--color-on-surface-variant);
+}
+
+.schoolRating {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.stars {
+  color: #f59e0b;
+  font-size: 0.875rem;
+  letter-spacing: 1px;
+}
+
+.ratingNum {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-on-surface);
+}
+
+.reviewCount {
+  font-size: 0.75rem;
+  color: var(--color-on-surface-variant);
+}
+
+.courses {
+  display: flex;
+  gap: 0.375rem;
+  flex-wrap: wrap;
+}
+
+.schoolFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  background: var(--color-surface-container-low);
+  border-top: 1px solid var(--color-outline-variant);
+}
+
+.priceLabel {
+  font-size: 0.6875rem;
+  color: var(--color-on-surface-variant);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.price {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--color-secondary);
+}
+
+@media (max-width: 1024px) {
+  .schoolGrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .schoolGrid { grid-template-columns: 1fr; }
+}

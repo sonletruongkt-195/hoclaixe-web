@@ -1,0 +1,275 @@
+.page { min-height: 100vh; background: var(--color-surface); }
+
+.hero {
+  background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 100%);
+  padding: 3rem 0;
+  color: white;
+}
+
+.breadcrumb {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-size: 0.8125rem; color: rgba(255,255,255,0.7); margin-bottom: 1rem;
+}
+.breadcrumb a { color: rgba(255,255,255,0.7); }
+.breadcrumb a:hover { color: #fff; }
+
+.heroTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 800; letter-spacing: -0.02em; color: #fff; margin-bottom: 0.5rem;
+}
+
+.heroDesc { font-size: 1rem; color: rgba(255,255,255,0.85); }
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 2rem;
+}
+
+.main { display: flex; flex-direction: column; gap: 2rem; }
+
+.section {}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  gap: 1rem;
+}
+
+.sectionTitle {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-on-surface);
+}
+
+.sectionDesc {
+  font-size: 0.875rem;
+  color: var(--color-on-surface-variant);
+  margin-bottom: 1.25rem;
+  line-height: 1.6;
+}
+
+/* Buddy grid */
+.buddyGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.buddyCard {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 1rem 1.25rem;
+}
+
+.buddyAvatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.125rem;
+  flex-shrink: 0;
+}
+
+.buddyInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.buddyName {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-on-surface);
+}
+
+.buddyMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  color: var(--color-on-surface-variant);
+  flex-wrap: wrap;
+}
+
+.buddySchedule {
+  font-size: 0.6875rem;
+  color: var(--color-on-surface-variant);
+  margin-top: 0.25rem;
+}
+
+/* Forum posts */
+.postList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.postCard {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.postHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.postAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-container) 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.postAuthor {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-on-surface);
+}
+
+.postTime {
+  font-size: 0.75rem;
+  color: var(--color-on-surface-variant);
+  margin-top: 0.125rem;
+}
+
+.postContent {
+  font-size: 0.9375rem;
+  color: var(--color-on-surface);
+  line-height: 1.65;
+}
+
+.postActions {
+  display: flex;
+  gap: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-outline-variant);
+}
+
+.postAction {
+  font-size: 0.8125rem;
+  color: var(--color-on-surface-variant);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  padding: 0;
+  transition: color var(--transition-fast);
+}
+
+.postAction:hover { color: var(--color-on-surface); }
+
+/* Sidebar */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: sticky;
+  top: 80px;
+  align-self: flex-start;
+}
+
+.lbCard, .quickCard { padding: 1.25rem; }
+
+.sideTitle {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-on-surface);
+  margin-bottom: 1rem;
+}
+
+.lbList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.lbItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-lg);
+  transition: background var(--transition-fast);
+}
+
+.lbItem:hover { background: var(--color-surface-container-low); }
+
+.lbTop {
+  background: var(--color-primary-fixed);
+}
+
+.lbRank {
+  width: 28px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-on-surface-variant);
+  flex-shrink: 0;
+}
+
+.lbName {
+  flex: 1;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-on-surface);
+}
+
+.lbScore {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.quickLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.quickLink {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.625rem 0.875rem;
+  border-radius: var(--radius-lg);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-on-surface-variant);
+  background: var(--color-surface-container-low);
+  transition: all var(--transition-fast);
+}
+
+.quickLink:hover {
+  background: var(--color-surface-container);
+  color: var(--color-primary);
+}
+
+.quickIcon { font-size: 1rem; }
+
+@media (max-width: 1024px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; }
+  .buddyGrid { grid-template-columns: 1fr; }
+}

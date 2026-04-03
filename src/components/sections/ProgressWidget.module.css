@@ -1,0 +1,120 @@
+.widget {
+  padding: 1.5rem;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  gap: 1rem;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-on-surface);
+  margin-top: 0.25rem;
+}
+
+.progressItems {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.progressItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.progressHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.875rem;
+}
+
+.progressIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.progressName {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-on-surface);
+}
+
+.progressSub {
+  font-size: 0.75rem;
+  color: var(--color-on-surface-variant);
+  margin-top: 0.125rem;
+}
+
+.progressPct {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  flex-shrink: 0;
+  min-width: 40px;
+  text-align: right;
+}
+
+/* Prediction */
+.prediction {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--color-primary-fixed);
+  border-radius: var(--radius-xl);
+  padding: 0.875rem 1rem;
+  margin-bottom: 0.875rem;
+}
+
+.predictionIcon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.predictionTitle {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.predictionDesc {
+  font-size: 0.75rem;
+  color: var(--color-on-surface-variant);
+  margin-top: 0.125rem;
+}
+
+.predictionScore {
+  margin-left: auto;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+.encouragement {
+  font-size: 0.8125rem;
+  color: var(--color-on-surface-variant);
+  background: var(--color-surface-container-low);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-lg);
+  line-height: 1.5;
+}
+
+.encouragement strong {
+  color: var(--color-on-surface);
+}
